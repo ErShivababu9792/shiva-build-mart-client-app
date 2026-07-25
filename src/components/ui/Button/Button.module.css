@@ -1,0 +1,27 @@
+.button{
+padding:14px 30px;
+border-radius:10px;
+font-size:16px;
+font-weight:600;
+transition:.3s;
+}
+
+.primary{
+background:var(--secondary);
+color:#fff;
+}
+
+.primary:hover{
+background:#1d4ed8;
+}
+
+.secondary{
+background:#fff;
+color:var(--secondary);
+border:2px solid var(--secondary);
+}
+
+.secondary:hover{
+background:var(--secondary);
+color:#fff;
+}

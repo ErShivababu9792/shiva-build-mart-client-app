@@ -1,0 +1,399 @@
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+
+.container{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:35px 25px;
+
+    min-height:100vh;
+
+    background:#f8fafc;
+
+}
+
+
+
+.container h1{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+/* =========================
+   PROFILE CARD
+========================= */
+
+
+.profileCard{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    background:white;
+
+    padding:22px;
+
+    border-radius:16px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+
+}
+
+
+
+
+.profileIcon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+}
+
+
+
+
+
+.profileCard h2{
+
+    font-size:20px;
+
+    color:#111827;
+
+    margin-bottom:6px;
+
+}
+
+
+
+
+.profileCard p{
+
+    font-size:14px;
+
+    color:#64748b;
+
+    margin:4px 0;
+
+}
+
+
+
+
+.profileCard span{
+
+    display:inline-block;
+
+    margin-top:8px;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+/* =========================
+   OPTIONS SECTION
+========================= */
+
+
+.options{
+
+    margin-top:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+
+
+
+.option{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:white;
+
+    padding:16px 18px;
+
+    border-radius:14px;
+
+    border:1px solid #e5e7eb;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.option:hover{
+
+    transform:translateX(5px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+
+.option svg{
+
+    width:25px;
+
+    height:25px;
+
+    color:#2563eb;
+
+}
+
+
+
+
+
+.option h3{
+
+    margin:0;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+
+
+
+
+.option p{
+
+    margin:4px 0 0;
+
+    font-size:13px;
+
+    color:#64748b;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   LOGOUT BUTTON
+========================= */
+
+
+.logout{
+
+    margin-top:25px;
+
+    width:150px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#111827;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.logout:hover{
+
+    background:#dc2626;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+
+
+
+/* =========================
+   LOADING
+========================= */
+
+
+.loading{
+
+    min-height:300px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#475569;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:600px){
+
+
+.container{
+
+    padding:25px 15px;
+
+}
+
+
+
+.container h1{
+
+    font-size:22px;
+
+}
+
+
+
+.profileCard{
+
+    padding:16px;
+
+}
+
+
+
+.profileIcon{
+
+    width:55px;
+
+    height:55px;
+
+}
+
+
+
+.profileCard h2{
+
+    font-size:18px;
+
+}
+
+
+
+.option{
+
+    padding:14px;
+
+}
+
+
+
+.option h3{
+
+    font-size:15px;
+
+}
+
+
+
+.logout{
+
+    width:100%;
+
+}
+
+
+
+}

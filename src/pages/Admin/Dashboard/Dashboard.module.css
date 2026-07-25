@@ -1,0 +1,661 @@
+.container {
+
+  padding:30px;
+
+  background:#f8fafc;
+
+  min-height:100vh;
+
+}
+
+
+
+
+
+
+
+/* =====================
+HEADER
+===================== */
+
+
+.header {
+
+  background:white;
+
+  padding:28px;
+
+  border-radius:22px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  border:1px solid #e5e7eb;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.05);
+
+  margin-bottom:25px;
+
+}
+
+
+
+.small {
+
+  color:#64748b;
+
+  font-size:13px;
+
+  margin-bottom:8px;
+
+}
+
+
+
+.header h1 {
+
+  margin:0;
+
+  font-size:28px;
+
+  font-weight:800;
+
+  color:#111827;
+
+}
+
+
+
+.text {
+
+  margin-top:10px;
+
+  color:#6b7280;
+
+  font-size:14px;
+
+}
+
+
+
+
+
+
+
+/* PROFILE */
+
+
+.profile {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+}
+
+
+
+.avatar {
+
+
+height:55px;
+
+width:55px;
+
+border-radius:50%;
+
+
+background:
+
+linear-gradient(
+135deg,
+#38bdf8,
+#0ea5e9
+);
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+font-size:22px;
+
+font-weight:800;
+
+
+color:#082f49;
+
+
+}
+
+
+
+.profile h3 {
+
+  margin:0;
+
+  font-size:16px;
+
+}
+
+
+
+.profile span {
+
+  font-size:12px;
+
+  color:#64748b;
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================
+TOP CARDS
+===================== */
+
+
+.cards {
+
+
+display:grid;
+
+
+grid-template-columns:
+repeat(4,1fr);
+
+
+gap:20px;
+
+
+margin-bottom:25px;
+
+
+}
+
+
+
+
+.card {
+
+
+background:white;
+
+
+padding:24px;
+
+
+border-radius:20px;
+
+
+border:1px solid #e5e7eb;
+
+
+position:relative;
+
+
+overflow:hidden;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.card:hover {
+
+
+transform:translateY(-5px);
+
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.card::before {
+
+
+content:"";
+
+
+position:absolute;
+
+
+right:-35px;
+
+
+top:-35px;
+
+
+height:90px;
+
+
+width:90px;
+
+
+border-radius:50%;
+
+
+background:#e0f2fe;
+
+
+}
+
+
+
+.card h4 {
+
+
+margin:0;
+
+
+font-size:13px;
+
+
+color:#64748b;
+
+
+}
+
+
+
+.card h2 {
+
+
+margin:15px 0 5px;
+
+
+font-size:34px;
+
+
+color:#111827;
+
+
+}
+
+
+
+.card p {
+
+
+margin:0;
+
+
+font-size:12px;
+
+
+color:#94a3b8;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================
+SECTION
+===================== */
+
+
+.section {
+
+
+background:white;
+
+
+padding:28px;
+
+
+border-radius:22px;
+
+
+margin-top:25px;
+
+
+border:1px solid #e5e7eb;
+
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.04);
+
+
+}
+
+
+
+.section h2 {
+
+
+margin:0 0 22px;
+
+
+font-size:20px;
+
+
+color:#111827;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================
+ANALYTICS BOX
+===================== */
+
+
+.analytics {
+
+
+display:grid;
+
+
+grid-template-columns:
+repeat(5,1fr);
+
+
+gap:18px;
+
+
+}
+
+
+
+.box {
+
+
+background:#f8fafc;
+
+
+padding:22px;
+
+
+border-radius:18px;
+
+
+text-align:center;
+
+
+border:1px solid #eef2f7;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.box:hover {
+
+
+background:white;
+
+
+transform:translateY(-4px);
+
+
+box-shadow:
+
+0 12px 30px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.box h3 {
+
+
+margin:0;
+
+
+font-size:24px;
+
+
+font-weight:800;
+
+
+color:#0f172a;
+
+
+}
+
+
+
+.box p {
+
+
+margin-top:8px;
+
+
+font-size:12px;
+
+
+color:#64748b;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================
+MANAGEMENT CENTER
+===================== */
+
+
+.management {
+
+
+display:grid;
+
+
+grid-template-columns:
+repeat(6,1fr);
+
+
+gap:18px;
+
+
+}
+
+
+
+.management div {
+
+
+padding:22px 10px;
+
+
+border-radius:18px;
+
+
+background:
+
+linear-gradient(
+135deg,
+#f8fafc,
+#ffffff
+);
+
+
+border:1px solid #e5e7eb;
+
+
+text-align:center;
+
+
+font-size:14px;
+
+
+font-weight:600;
+
+
+color:#334155;
+
+
+cursor:pointer;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.management div:hover {
+
+
+background:#0f172a;
+
+
+color:white;
+
+
+transform:translateY(-5px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================
+RESPONSIVE
+===================== */
+
+
+@media(max-width:1200px){
+
+
+.cards{
+
+
+grid-template-columns:
+repeat(2,1fr);
+
+
+}
+
+
+
+.analytics{
+
+
+grid-template-columns:
+repeat(3,1fr);
+
+
+}
+
+
+
+.management{
+
+
+grid-template-columns:
+repeat(3,1fr);
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+@media(max-width:700px){
+
+
+.container{
+
+padding:15px;
+
+}
+
+
+
+.header{
+
+
+flex-direction:column;
+
+
+align-items:flex-start;
+
+
+gap:20px;
+
+
+}
+
+
+
+.cards,
+
+
+.analytics,
+
+
+.management{
+
+
+grid-template-columns:
+1fr;
+
+
+}
+
+
+
+}

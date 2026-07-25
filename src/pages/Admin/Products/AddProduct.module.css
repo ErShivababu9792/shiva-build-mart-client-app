@@ -1,0 +1,289 @@
+.container {
+
+  max-width: 900px;
+
+  margin: 30px auto;
+
+  padding: 25px;
+
+  background: #ffffff;
+
+  border-radius: 12px;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+
+}
+
+
+
+.container h1 {
+
+  font-size: 22px;
+
+  font-weight: 600;
+
+  margin-bottom: 25px;
+
+  color: #111827;
+
+}
+
+
+
+
+.form {
+
+  display: grid;
+
+  grid-template-columns: repeat(2,1fr);
+
+  gap: 18px;
+
+}
+
+
+
+
+.form input,
+.form textarea {
+
+
+  width:100%;
+
+  padding:11px 13px;
+
+  border:1px solid #e5e7eb;
+
+  border-radius:8px;
+
+  font-size:13px;
+
+  outline:none;
+
+  background:#fafafa;
+
+  transition:0.3s;
+
+
+}
+
+
+
+
+.form textarea {
+
+  grid-column: span 2;
+
+  min-height:120px;
+
+  resize:none;
+
+}
+
+
+
+
+.form input:focus,
+.form textarea:focus {
+
+
+  border-color:#111827;
+
+  background:#fff;
+
+
+}
+
+
+
+
+.form input::placeholder,
+.form textarea::placeholder {
+
+
+  color:#9ca3af;
+
+  font-size:13px;
+
+
+}
+
+
+
+
+/* File Upload */
+
+
+.form input[type="file"] {
+
+
+  background:#fff;
+
+  padding:8px;
+
+  cursor:pointer;
+
+  font-size:12px;
+
+
+}
+
+
+
+
+/* Read Only Final Price */
+
+
+.form input[readonly] {
+
+
+  background:#f3f4f6;
+
+  cursor:not-allowed;
+
+  font-weight:600;
+
+
+}
+
+
+
+
+/* Button */
+
+
+.form button {
+
+
+  grid-column:span 2;
+
+
+  padding:12px;
+
+
+  border:none;
+
+  border-radius:8px;
+
+
+  background:#111827;
+
+  color:white;
+
+
+  font-size:14px;
+
+  font-weight:500;
+
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+
+}
+
+
+
+
+.form button:hover {
+
+
+  background:#000;
+
+  transform:translateY(-1px);
+
+
+}
+
+
+
+.form button:disabled {
+
+
+  opacity:0.6;
+
+  cursor:not-allowed;
+
+
+}
+
+
+
+
+
+/* Responsive */
+
+
+@media(max-width:700px){
+
+
+.form{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.form textarea,
+.form button{
+
+
+grid-column:span 1;
+
+
+}
+
+
+
+.container{
+
+
+margin:15px;
+
+padding:18px;
+
+
+}
+
+
+}
+
+.summaryCard{
+    margin:20px 0;
+    padding:18px;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    background:#fafafa;
+}
+
+.summaryCard h3{
+    margin:0 0 15px;
+    font-size:15px;
+    font-weight:600;
+    color:#111827;
+}
+
+.summaryRow{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 0;
+    border-bottom:1px solid #ececec;
+    font-size:14px;
+}
+
+.summaryRow:last-child{
+    border-bottom:none;
+}
+
+.summaryRow span{
+    color:#6b7280;
+}
+
+.summaryRow strong{
+    color:#111827;
+}

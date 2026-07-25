@@ -1,0 +1,443 @@
+/* AdminLogin.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
+
+.container {
+  --bg-primary: #0a0e14;
+  --surface: #121821;
+  --surface-2: #171f2a;
+  --border: #232c3a;
+  --border-hover: #33404f;
+  --accent: #e8934a;
+  --accent-soft: rgba(232, 147, 74, 0.16);
+  --accent-glow: rgba(232, 147, 74, 0.35);
+  --accent-2: #4fa8d8;
+  --text-primary: #edf1f7;
+  --text-secondary: #8d98a8;
+  --text-muted: #566072;
+  --danger: #e0605a;
+  --radius: 16px;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(79, 168, 216, 0.08), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(232, 147, 74, 0.06), transparent 50%),
+    var(--bg-primary);
+  font-family: var(--font-body);
+  overflow: hidden;
+}
+
+/* Blueprint grid backdrop */
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(79, 168, 216, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 168, 216, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  animation: gridDrift 40s linear infinite;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 90%);
+}
+
+@keyframes gridDrift {
+  from { background-position: 0 0; }
+  to { background-position: 84px 84px; }
+}
+
+/* ---------- Card ---------- */
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 44px 38px 36px;
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  backdrop-filter: blur(6px);
+  animation: cardEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  z-index: 1;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Scanner-style corner brackets */
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  opacity: 0.85;
+  animation: bracketPulse 3.2s ease-in-out infinite;
+}
+
+.card::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--accent);
+  border-left: 2px solid var(--accent);
+  border-top-left-radius: 6px;
+}
+
+.card::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--accent-2);
+  border-right: 2px solid var(--accent-2);
+  border-bottom-right-radius: 6px;
+  animation-delay: 1.6s;
+}
+
+@keyframes bracketPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; filter: drop-shadow(0 0 4px currentColor); }
+}
+
+/* ---------- Logo / badge ---------- */
+
+.logo {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(232, 147, 74, 0.4);
+  border-radius: 14px;
+  box-shadow: 0 0 0 0 var(--accent-glow);
+  animation: badgePulse 2.4s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  70% { box-shadow: 0 0 0 12px rgba(232, 147, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 147, 74, 0); }
+}
+
+.card h1 {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  margin: -12px 0 6px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  letter-spacing: 0.3px;
+}
+
+/* ---------- Inputs ---------- */
+
+.card > input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.card > input::placeholder {
+  color: var(--text-muted);
+}
+
+.card > input:hover {
+  border-color: var(--border-hover);
+}
+
+.card > input:focus {
+  border-color: var(--accent-2);
+  background: rgba(79, 168, 216, 0.04);
+  box-shadow: 0 0 0 3px rgba(79, 168, 216, 0.15);
+}
+
+.passwordBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordBox input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 44px 13px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.passwordBox input::placeholder {
+  color: var(--text-muted);
+}
+
+.passwordBox input:hover {
+  border-color: var(--border-hover);
+}
+
+.passwordBox input:focus {
+  border-color: var(--accent-2);
+  background: rgba(79, 168, 216, 0.04);
+  box-shadow: 0 0 0 3px rgba(79, 168, 216, 0.15);
+}
+
+.passwordBox span {
+  position: absolute;
+  right: 14px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-secondary);
+  user-select: none;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.passwordBox span:hover {
+  color: var(--accent);
+  transform: scale(1.12);
+}
+
+/* ---------- Options row ---------- */
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -4px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.options input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid var(--border-hover);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.options input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.options input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid #0a0e14;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  font-family: var(--font-body);
+  color: var(--accent-2);
+  cursor: pointer;
+  position: relative;
+}
+
+.linkBtn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: var(--accent-2);
+  transition: width 0.2s ease;
+}
+
+.linkBtn:hover::after {
+  width: 100%;
+}
+
+/* ---------- Submit button ---------- */
+
+.card > button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 4px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), #d67a34);
+  color: #0a0e14;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  box-shadow: 0 8px 20px -8px rgba(232, 147, 74, 0.55);
+}
+
+.card > button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 10px 24px -8px rgba(232, 147, 74, 0.7);
+}
+
+.card > button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.card > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+  animation: loadingPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 0.95; }
+}
+
+/* ---------- Back to website ---------- */
+
+.backHome {
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.backHome button {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.backHome button:hover {
+  color: var(--text-primary);
+  transform: translateX(-3px);
+}
+
+/* ---------- Register row ---------- */
+
+.register {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+}
+
+.register button {
+  background: none;
+  border: none;
+  margin-left: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  position: relative;
+}
+
+.register button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.register button:hover::after {
+  width: 100%;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 420px) {
+  .card {
+    padding: 34px 24px 28px;
+  }
+
+  .card h1 {
+    font-size: 21px;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .container::before,
+  .card,
+  .card::before,
+  .card::after,
+  .logo,
+  .card > button:disabled {
+    animation: none !important;
+  }
+}

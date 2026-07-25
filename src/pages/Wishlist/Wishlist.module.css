@@ -1,0 +1,651 @@
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:30px 25px;
+
+    min-height:100vh;
+
+    background:#f8fafc;
+
+}
+
+
+
+
+
+/* =========================
+   HEADING
+========================= */
+
+
+.container h1{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+
+/* =========================
+   LOADING
+========================= */
+
+
+.loading{
+
+    min-height:300px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#475569;
+
+}
+
+
+
+
+
+
+/* =========================
+   EMPTY WISHLIST
+========================= */
+
+
+.empty{
+
+    background:white;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-radius:14px;
+
+    color:#64748b;
+
+    font-size:15px;
+
+    border:1px solid #e5e7eb;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fill,minmax(220px,1fr));
+
+    gap:18px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+
+.card{
+
+    position:relative;
+
+    background:white;
+
+    border-radius:14px;
+
+    padding:14px;
+
+    border:1px solid #e5e7eb;
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+
+.card img{
+
+    width:100%;
+
+    height:160px;
+
+    object-fit:contain;
+
+    border-radius:10px;
+
+    background:#f8fafc;
+
+}
+
+
+
+
+
+/* =========================
+   CONTENT
+========================= */
+
+
+.content{
+
+    padding-top:10px;
+
+}
+
+
+
+
+.content h3{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#111827;
+
+    margin:8px 0;
+
+    line-height:1.4;
+
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+/* =========================
+   CATEGORY
+========================= */
+
+
+.category{
+
+    font-size:13px;
+
+    color:#64748b;
+
+    margin:6px 0;
+
+}
+
+
+
+
+
+
+/* =========================
+   PRICE
+========================= */
+
+
+.price{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#16a34a;
+
+    margin:10px 0;
+
+}
+
+
+
+
+
+
+/* =========================
+   STOCK STATUS
+========================= */
+
+
+.stock{
+
+    font-size:13px;
+
+    color:#16a34a;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.outStock{
+
+    font-size:13px;
+
+    color:#dc2626;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+}
+
+
+
+
+
+
+/* =========================
+   ACTION BUTTON AREA
+========================= */
+
+
+.actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:12px;
+
+}
+
+
+
+
+
+
+/* ALL BUTTON */
+
+.actions button{
+
+    height:34px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:5px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+
+
+/* CART BUTTON */
+
+
+.actions button:first-child{
+
+    flex:1;
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+.actions button:first-child:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+
+
+
+/* BUY NOW */
+
+
+.buy{
+
+    flex:1;
+
+    background:#16a34a;
+
+    color:white;
+
+}
+
+
+
+.buy:hover{
+
+    background:#15803d;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+.buy:disabled{
+
+    opacity:.5;
+
+    cursor:not-allowed;
+
+}
+
+
+
+
+
+
+
+/* REMOVE BUTTON */
+
+
+.remove{
+
+    width:34px;
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+
+
+.remove:hover{
+
+    background:#dc2626;
+
+    color:white;
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
+
+/* ICON SIZE CONTROL */
+
+
+.actions svg{
+
+    width:15px;
+
+    height:15px;
+
+}
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
+
+@media(max-width:900px){
+
+
+    .container{
+
+        padding:25px 18px;
+
+    }
+
+
+
+    .grid{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+        gap:15px;
+
+    }
+
+
+
+    .card{
+
+        padding:12px;
+
+    }
+
+
+
+    .card img{
+
+        height:140px;
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+
+@media(max-width:650px){
+
+
+    .container{
+
+        padding:20px 15px;
+
+    }
+
+
+
+    .container h1{
+
+        font-size:22px;
+
+    }
+
+
+
+    .grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:12px;
+
+    }
+
+
+
+    .card{
+
+        padding:10px;
+
+        border-radius:12px;
+
+    }
+
+
+
+    .card img{
+
+        height:130px;
+
+    }
+
+
+
+    .content h3{
+
+        font-size:14px;
+
+    }
+
+
+
+    .price{
+
+        font-size:16px;
+
+    }
+
+
+
+    .actions{
+
+        gap:6px;
+
+    }
+
+
+
+    .actions button{
+
+        height:32px;
+
+        font-size:11px;
+
+    }
+
+
+
+    .actions svg{
+
+        width:13px;
+
+        height:13px;
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+
+@media(max-width:420px){
+
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .card img{
+
+        height:170px;
+
+    }
+
+
+
+    .actions button{
+
+        height:36px;
+
+        font-size:12px;
+
+    }
+
+
+}

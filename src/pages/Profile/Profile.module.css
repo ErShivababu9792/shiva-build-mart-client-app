@@ -1,0 +1,45 @@
+.container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:40px 20px;
+    background:#f5f5f5;
+}
+
+.card{
+    width:100%;
+    max-width:700px;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.userInfo{
+    margin:25px 0;
+}
+
+.userInfo h2{
+    margin-bottom:10px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.menuItem{
+    text-decoration:none;
+    color:#222;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    transition:.3s;
+    font-weight:500;
+}
+
+.menuItem:hover{
+    background:#f0f0f0;
+}

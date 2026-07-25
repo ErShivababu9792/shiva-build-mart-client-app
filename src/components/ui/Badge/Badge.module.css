@@ -1,0 +1,25 @@
+.badge{
+
+min-width:20px;
+
+height:20px;
+
+padding:0 6px;
+
+border-radius:50%;
+
+background:var(--danger);
+
+color:#fff;
+
+font-size:12px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-weight:600;
+
+}

@@ -1,0 +1,19 @@
+.bar{
+height:42px;
+
+background:#0F172A;
+
+color:#fff;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 70px;
+
+font-size:14px;
+
+font-weight:500;
+}

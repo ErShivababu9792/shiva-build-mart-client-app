@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+@import "./reset.css";
+@import "./variables.css";
+@import "./typography.css";
+
+
+/* ==========================
+   GLOBAL RESET
+========================== */
+
+*,
+*::before,
+*::after{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+html{
+
+    scroll-behavior:smooth;
+
+    font-size:16px;
+
+}
+
+
+
+body{
+
+    width:100%;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    font-family:"Poppins", sans-serif;
+
+    background:#f8fafc;
+
+    color:#111827;
+
+}
+
+
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+
+
+ul{
+
+    list-style:none;
+
+}
+
+
+
+button{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+}
+
+
+
+input,
+textarea,
+select{
+
+    font-family:inherit;
+
+}
+
+
+
+
+
+/* ==========================
+   IMAGE SYSTEM
+========================== */
+
+
+img{
+
+    max-width:100%;
+
+    height:auto;
+
+    display:block;
+
+}
+
+
+
+
+
+/* ==========================
+   MAIN CONTAINER
+========================== */
+
+
+.container{
+
+    width:100%;
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:0 40px;
+
+}
+
+
+
+
+
+/* ==========================
+   HEADINGS
+========================== */
+
+
+h1,
+h2,
+h3,
+h4{
+
+    line-height:1.3;
+
+    color:#111827;
+
+}
+
+
+
+
+
+/* ==========================
+   RESPONSIVE TABLET
+========================== */
+
+
+@media(max-width:1024px){
+
+
+.container{
+
+    padding:0 25px;
+
+}
+
+
+h1{
+
+    font-size:32px;
+
+}
+
+
+h2{
+
+    font-size:26px;
+
+}
+
+
+}
+
+
+
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+
+@media(max-width:768px){
+
+
+html{
+
+    font-size:14px;
+
+}
+
+
+
+.container{
+
+    padding:0 16px;
+
+}
+
+
+
+h1{
+
+    font-size:26px;
+
+}
+
+
+
+h2{
+
+    font-size:22px;
+
+}
+
+
+
+h3{
+
+    font-size:18px;
+
+}
+
+
+
+section{
+
+    padding-top:35px;
+
+    padding-bottom:35px;
+
+}
+
+
+
+/* common responsive classes */
+
+
+.flex-responsive{
+
+    flex-direction:column !important;
+
+}
+
+
+
+.grid-responsive{
+
+    grid-template-columns:1fr !important;
+
+}
+
+
+
+.desktop-only{
+
+    display:none !important;
+
+}
+
+
+
+.mobile-only{
+
+    display:block !important;
+
+}
+
+
+
+}
+
+
+
+
+
+/* ==========================
+   SMALL MOBILE
+========================== */
+
+
+@media(max-width:480px){
+
+
+body{
+
+    font-size:13px;
+
+}
+
+
+
+.container{
+
+    padding:0 12px;
+
+}
+
+
+
+button{
+
+    font-size:13px;
+
+}
+
+
+
+}

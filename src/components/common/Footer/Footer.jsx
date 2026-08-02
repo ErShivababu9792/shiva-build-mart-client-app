@@ -55,7 +55,7 @@ const Footer = () => {
 
             <p>
               <Phone size={16} />
-              +91 9876543210
+              +91 91402563355
             </p>
 
             <p>
@@ -65,7 +65,7 @@ const Footer = () => {
 
             <p>
               <MapPin size={16} />
-              Noida, Uttar Pradesh
+              Banglore, Karnataka, 562125
             </p>
 
             <div className={styles.social}>

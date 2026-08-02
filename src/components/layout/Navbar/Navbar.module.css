@@ -1,5 +1,9 @@
 /* Navbar.module.css */
 
+* {
+  box-sizing: border-box;
+}
+
 .navbar {
   position: sticky;
   top: 0;
@@ -7,6 +11,7 @@
   background: #ffffff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   width: 100%;
+  overflow-x: hidden;
 }
 
 .container {
@@ -16,6 +21,7 @@
   display: flex;
   align-items: center;
   gap: 24px;
+  width: 100%;
 }
 
 /* Logo */
@@ -26,12 +32,14 @@
   color: #1a1a2e;
   text-decoration: none;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* Search */
 
 .search {
   flex: 1;
+  min-width: 0; /* important: shrink hone deta hai, overflow nahi karega */
   max-width: 420px;
   display: flex;
   align-items: center;
@@ -43,11 +51,13 @@
 
 .search input {
   flex: 1;
+  min-width: 0;
   border: none;
   outline: none;
   background: transparent;
   font-size: 0.95rem;
   color: #1a1a2e;
+  width: 100%;
 }
 
 .search svg {
@@ -86,6 +96,7 @@
   align-items: center;
   gap: 16px;
   margin-left: auto;
+  flex-shrink: 0;
 }
 
 .user {
@@ -125,6 +136,7 @@
   border-radius: 6px;
   border: 1px solid #ddd;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .auth a:hover {
@@ -142,6 +154,7 @@
   cursor: pointer;
   color: #1a1a2e;
   padding: 4px;
+  flex-shrink: 0;
   z-index: 2100;
 }
 
@@ -150,17 +163,32 @@
 /* ===================== */
 
 @media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  .navbar {
+    overflow-x: hidden;
+  }
+
   .container {
-    padding: 12px 16px;
-    gap: 12px;
+    padding: 10px 12px;
+    gap: 8px;
   }
 
   .logo {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
   }
 
   .search {
     max-width: none;
+    padding: 6px 10px;
+  }
+
+  .search input {
+    font-size: 0.85rem;
   }
 
   /* Hide nav labels' inline layout, convert to sidebar */
@@ -201,22 +229,34 @@
   }
 
   .right {
-    gap: 10px;
+    gap: 6px;
+  }
+
+  .auth {
+    gap: 6px;
   }
 
   .auth a {
-    padding: 6px 10px;
-    font-size: 0.85rem;
+    padding: 5px 8px;
+    font-size: 0.8rem;
   }
 
   .user span {
     display: none; /* mobile pe naam hide, sirf icon + logout */
   }
+
+  .user button {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
 }
 
-/* Overlay backdrop pehli jagah se click krke close ho jaye */
-@media (max-width: 768px) {
-  .container nav.showMenu::before {
-    content: "";
+@media (max-width: 400px) {
+  .logo {
+    font-size: 0.95rem;
+  }
+
+  .search {
+    display: none; /* bahut chhoti screen pe search icon click se open karwana behtar hoga */
   }
 }

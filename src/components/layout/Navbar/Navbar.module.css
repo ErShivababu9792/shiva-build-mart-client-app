@@ -1,183 +1,90 @@
 /* Navbar.module.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
-
 .navbar {
-  --ink: #1a2130;
-  --ink-soft: #5b6472;
-  --ink-muted: #9aa2b0;
-  --bg: #fafaf8;
-  --surface: #ffffff;
-  --border: #e7e9ee;
-  --accent: #e85d2c;
-  --accent-soft: rgba(232, 93, 44, 0.09);
-  --accent-2: #1f5b8f;
-  --accent-2-soft: rgba(31, 91, 143, 0.08);
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 16px -8px rgba(26, 33, 48, 0.08);
-  font-family: var(--font-body);
-  animation: navDrop 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes navDrop {
-  from { opacity: 0; transform: translateY(-14px); }
-  to { opacity: 1; transform: translateY(0); }
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  width: 100%;
 }
 
 .container {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 14px 24px;
   display: flex;
   align-items: center;
-  gap: 28px;
-  padding: 14px 28px;
+  gap: 24px;
 }
 
-/* ---------- Logo ---------- */
+/* Logo */
 
 .logo {
-  flex-shrink: 0;
-  font-family: var(--font-display);
+  font-size: 1.4rem;
   font-weight: 700;
-  font-size: 19px;
-  letter-spacing: -0.2px;
-  color: var(--ink);
+  color: #1a1a2e;
   text-decoration: none;
-  display: flex;
-  align-items: baseline;
-  gap: 5px;
-  transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
-.logo::before {
-  content: "";
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  margin-right: 2px;
-  background: var(--accent);
-  border-radius: 2px;
-  transform: rotate(45deg);
-}
-
-.logo:hover {
-  color: var(--accent-2);
-}
-
-/* ---------- Search ---------- */
+/* Search */
 
 .search {
   flex: 1;
-  max-width: 460px;
-  position: relative;
+  max-width: 420px;
   display: flex;
   align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #f7f7f9;
 }
 
 .search input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 42px 10px 16px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  color: var(--ink);
+  flex: 1;
+  border: none;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.search input::placeholder {
-  color: var(--ink-muted);
-}
-
-.search input:focus {
-  background: var(--surface);
-  border-color: var(--accent-2);
-  box-shadow: 0 0 0 4px var(--accent-2-soft);
+  background: transparent;
+  font-size: 0.95rem;
+  color: #1a1a2e;
 }
 
 .search svg {
-  position: absolute;
-  right: 14px;
-  color: var(--ink-muted);
-  pointer-events: none;
-  transition: color 0.2s ease;
+  color: #888;
+  flex-shrink: 0;
 }
 
-.search input:focus ~ svg {
-  color: var(--accent-2);
-}
-
-/* ---------- Nav links ---------- */
+/* Nav links (desktop) */
 
 .container nav {
   display: flex;
   align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
+  gap: 20px;
 }
 
 .container nav a {
-  position: relative;
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 12px;
-  border-radius: 8px;
   text-decoration: none;
-  font-size: 13px;
+  color: #333;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: var(--ink-soft);
-  transition: color 0.18s ease, background 0.18s ease;
-}
-
-.container nav a svg {
-  transition: transform 0.18s ease;
+  white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
 .container nav a:hover {
-  color: var(--accent);
-  background: var(--accent-soft);
+  color: #e67e22;
 }
 
-.container nav a:hover svg {
-  transform: translateY(-1px);
-}
-
-.container nav a::after {
-  content: "";
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 2px;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 2px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.2s ease;
-}
-
-.container nav a:hover::after {
-  transform: scaleX(1);
-}
-
-/* ---------- Right side ---------- */
+/* Right side */
 
 .right {
   display: flex;
   align-items: center;
-  gap: 14px;
-  flex-shrink: 0;
+  gap: 16px;
   margin-left: auto;
 }
 
@@ -185,319 +92,131 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 8px 6px 12px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-}
-
-.user svg {
-  color: var(--accent-2);
-}
-
-.user span {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--ink);
-  max-width: 110px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: 0.9rem;
+  color: #1a1a2e;
 }
 
 .user button {
-  padding: 6px 12px;
   border: none;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--surface);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
+  background: #f2f2f2;
+  padding: 6px 12px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.18s ease, transform 0.15s ease;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
 }
 
 .user button:hover {
-  background: var(--accent);
-  transform: translateY(-1px);
+  background: #e6e6e6;
 }
 
 .auth {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .auth a {
   text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1a1a2e;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: all 0.2s ease;
 }
 
-.auth a:first-child {
-  color: var(--ink-soft);
-  transition: color 0.18s ease;
-}
-
-.auth a:first-child:hover {
-  color: var(--ink);
-}
-
-.auth a:last-child {
-  padding: 8px 18px;
-  background: var(--accent);
+.auth a:hover {
+  background: #1a1a2e;
   color: #fff;
-  border-radius: 999px;
-  box-shadow: 0 6px 16px -8px rgba(232, 93, 44, 0.6);
-  transition: background 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+  border-color: #1a1a2e;
 }
 
-.auth a:last-child:hover {
-  background: #d24f22;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px -8px rgba(232, 93, 44, 0.75);
-}
-
-/* ---------- Mobile menu button ---------- */
+/* Mobile menu button - hidden on desktop */
 
 .menuBtn {
   display: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: var(--ink);
+  border: none;
+  background: transparent;
   cursor: pointer;
-  transition: background 0.18s ease, border-color 0.18s ease;
+  color: #1a1a2e;
+  padding: 4px;
+  z-index: 2100;
 }
 
-.menuBtn:hover {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  color: var(--accent);
-}
+/* ===================== */
+/* Mobile / small devices */
+/* ===================== */
 
-/* ================= RESPONSIVE — TABLET ================= */
-
-@media (max-width: 960px) {
+@media (max-width: 768px) {
   .container {
-    gap: 14px;
-    padding: 12px 18px;
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
   }
 
   .search {
-    max-width: 280px;
+    max-width: none;
   }
 
+  /* Hide nav labels' inline layout, convert to sidebar */
   .container nav {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 78%;
+    max-width: 300px;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 80px 24px 24px;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 2000; /* upar aayega hero/baaki content se */
+  }
+
+  .container nav a {
+    width: 100%;
+    padding: 12px 8px;
+    font-size: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  /* Sidebar open state */
+  .showMenu {
+    transform: translateX(0) !important;
   }
 
   .menuBtn {
     display: flex;
-  }
-
-  .user span {
-    display: none;
-  }
-}
-
-/* ================= RESPONSIVE — PHONE ================= */
-
-@media (max-width: 640px) {
-
-  /* ---- Top bar: logo | search icon | hamburger ---- */
-
-  .container {
-    padding: 10px 14px;
-    gap: 10px;
-    flex-wrap: nowrap;
-  }
-
-  .logo {
-    font-size: 16.5px;
-  }
-
-  .logo::before {
-    width: 7px;
-    height: 7px;
-  }
-
-  /* Search collapses to a clean rounded icon field that
-     still reads as a proper input, just compact */
-  .search {
-    flex: 1;
-    max-width: none;
-    min-width: 0;
-  }
-
-  .search input {
-    padding: 9px 38px 9px 14px;
-    font-size: 13px;
-    border-radius: 12px;
-  }
-
-  .search svg {
-    right: 12px;
-    width: 16px;
-    height: 16px;
+    align-items: center;
+    justify-content: center;
   }
 
   .right {
-    gap: 8px;
+    gap: 10px;
   }
 
-  /* Auth links: keep only the primary CTA visible in the top bar,
-     "Login" moves inside the drawer to avoid crowding */
-  .auth {
-    gap: 0;
+  .auth a {
+    padding: 6px 10px;
+    font-size: 0.85rem;
   }
 
-  .auth a:first-child {
-    display: none;
+  .user span {
+    display: none; /* mobile pe naam hide, sirf icon + logout */
   }
+}
 
-  .auth a:last-child {
-    padding: 8px 14px;
-    font-size: 12.5px;
-    white-space: nowrap;
-  }
-
-  /* Compact circular user avatar chip */
-  .user {
-    padding: 6px;
-    gap: 0;
-    border-radius: 999px;
-  }
-
-  .user svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .user button {
-    display: none;
-  }
-
-  .menuBtn {
-    width: 38px;
-    height: 38px;
-    flex-shrink: 0;
-  }
-
-  /* ---- Slide-down drawer menu ---- */
-
-  .container nav.showMenu {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    position: fixed;
-    top: 58px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 16px 14px 28px;
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    animation: menuSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  /* Soft backdrop behind the drawer for focus */
+/* Overlay backdrop pehli jagah se click krke close ho jaye */
+@media (max-width: 768px) {
   .container nav.showMenu::before {
     content: "";
-    position: fixed;
-    inset: 58px 0 0 0;
-    background: rgba(26, 33, 48, 0.28);
-    z-index: -1;
-  }
-
-  @keyframes menuSlide {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .container nav.showMenu a {
-    padding: 15px 16px;
-    border-radius: 12px;
-    font-size: 15.5px;
-    font-weight: 600;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    opacity: 0;
-    animation: linkIn 0.32s ease-out forwards;
-  }
-
-  .container nav.showMenu a svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .container nav.showMenu a:nth-child(1) { animation-delay: 0.03s; }
-  .container nav.showMenu a:nth-child(2) { animation-delay: 0.06s; }
-  .container nav.showMenu a:nth-child(3) { animation-delay: 0.09s; }
-  .container nav.showMenu a:nth-child(4) { animation-delay: 0.12s; }
-  .container nav.showMenu a:nth-child(5) { animation-delay: 0.15s; }
-  .container nav.showMenu a:nth-child(6) { animation-delay: 0.18s; }
-
-  @keyframes linkIn {
-    from { opacity: 0; transform: translateX(-10px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-
-  .container nav.showMenu a::after {
-    display: none;
-  }
-
-  .container nav.showMenu a:active {
-    background: var(--accent-soft);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  /* Login link reappears neatly inside the drawer, as a footer row */
-  .container nav.showMenu .auth {
-    display: flex;
-    margin-top: 10px;
-    padding-top: 14px;
-    border-top: 1px solid var(--border);
-  }
-
-  .container nav.showMenu .auth a:first-child {
-    display: flex;
-    flex: 1;
-  }
-}
-
-/* ---------- Very small phones ---------- */
-
-@media (max-width: 380px) {
-  .logo {
-    font-size: 15px;
-  }
-
-  .search input {
-    font-size: 12.5px;
-    padding: 8px 34px 8px 12px;
-  }
-
-  .auth a:last-child {
-    padding: 7px 11px;
-    font-size: 12px;
-  }
-}
-
-/* ---------- Reduced motion ---------- */
-
-@media (prefers-reduced-motion: reduce) {
-  .navbar,
-  .container nav.showMenu,
-  .container nav.showMenu a {
-    animation: none !important;
   }
 }

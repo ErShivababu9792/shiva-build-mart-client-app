@@ -32,7 +32,7 @@
   margin: 0;
 }
 
-/* Grid - laptop pe chhote boxes */
+/* Grid */
 
 .grid {
   display: grid;
@@ -40,77 +40,39 @@
   gap: 14px;
 }
 
-/* Card */
+/* Card / Button */
 
 .card {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.35s ease;
-}
-
-.card:hover img {
-  transform: scale(1.08);
-}
-
-/* Overlay */
-
-.overlay {
-  position: absolute;
-  inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 8px;
-  padding: 10px;
-  text-align: center;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.75) 0%,
-    rgba(0, 0, 0, 0.15) 55%,
-    rgba(0, 0, 0, 0.35) 100%
-  );
-}
-
-.overlay h3 {
-  color: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.overlay button {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: #ffffff;
+  border: 1.5px solid #e5e5e5;
+  background: #f9f9fb;
   color: #1a1a2e;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.7rem;
+  padding: 16px 18px;
+  border-radius: 10px;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  opacity: 0;
-  transform: translateY(6px);
   transition: all 0.25s ease;
-  white-space: nowrap;
 }
 
-.card:hover .overlay button {
-  opacity: 1;
-  transform: translateY(0);
+.card svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  color: #e67e22;
+}
+
+.card:hover {
+  background: #1a1a2e;
+  border-color: #1a1a2e;
+  color: #ffffff;
+}
+
+.card:hover svg {
+  transform: translateX(4px);
+  color: #ffffff;
 }
 
 /* ===================== */
@@ -137,6 +99,11 @@
   .heading h2 {
     font-size: 1.5rem;
   }
+
+  .card {
+    padding: 14px 14px;
+    font-size: 0.85rem;
+  }
 }
 
 /* ===================== */
@@ -161,34 +128,19 @@
   }
 
   .grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
   .card {
+    padding: 12px 10px;
     border-radius: 8px;
+    font-size: 0.78rem;
   }
 
-  .overlay {
-    padding: 6px;
-    gap: 4px;
-  }
-
-  .overlay h3 {
-    font-size: 0.65rem;
-  }
-
-  /* Mobile pe button hamesha visible rahe (hover nahi hota touch pe) */
-  .overlay button {
-    opacity: 1;
-    transform: none;
-    padding: 3px 6px;
-    font-size: 0.55rem;
-  }
-
-  .overlay button svg {
-    width: 10px;
-    height: 10px;
+  .card svg {
+    width: 14px;
+    height: 14px;
   }
 }
 
@@ -199,14 +151,11 @@
 @media (max-width: 380px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 6px;
   }
 
-  .overlay h3 {
-    font-size: 0.75rem;
-  }
-
-  .overlay button {
-    font-size: 0.6rem;
+  .card {
+    padding: 10px 8px;
+    font-size: 0.7rem;
   }
 }

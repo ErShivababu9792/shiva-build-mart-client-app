@@ -1,119 +1,68 @@
 /* Hero.module.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
-
-.hero {
-  --ink: #1a2130;
-  --accent: #e85d2c;
-  --accent-2: #1f5b8f;
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
-  position: relative;
-  min-height: 78vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background:
-    linear-gradient(120deg, rgba(26, 33, 48, 0.88), rgba(26, 33, 48, 0.55)),
-    url('/images/hero-bg.jpg') center/cover no-repeat;
-  background-color: var(--ink);
+* {
+  box-sizing: border-box;
 }
 
-/* Subtle industrial grid texture over the image */
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 46px 46px;
-  pointer-events: none;
-  z-index: 1;
+.hero {
+  position: relative;
+  min-height: 46vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a2e; /* fallback - image load na ho tab bhi dark rahe */
+  background-image: url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 15% 30%, rgba(232, 93, 44, 0.16), transparent 55%);
-  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
 }
 
 .content {
   position: relative;
   z-index: 2;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 60px 24px;
-  width: 100%;
+  max-width: 680px;
+  padding: 32px 24px;
+  text-align: center;
+  color: #ffffff;
 }
+
+/* Company name badge - animated */
 
 .small {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin: 0 0 18px;
-  padding: 7px 16px;
-  font-family: var(--font-body);
-  font-size: 12.5px;
-  font-weight: 600;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 500;
   letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: #ffd9c4;
-  background: rgba(232, 93, 44, 0.14);
-  border: 1px solid rgba(232, 93, 44, 0.4);
-  border-radius: 999px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease-out 0.1s forwards;
+  margin-bottom: 14px;
+  animation: fadeSlideIn 0.7s ease, glowPulse 2.5s ease-in-out infinite 0.7s;
 }
 
-.small::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
+.small svg {
+  animation: swing 2s ease-in-out infinite;
+  transform-origin: bottom left;
 }
 
-.content h1 {
-  margin: 0 0 18px;
-  font-family: var(--font-display);
-  font-size: clamp(34px, 5vw, 52px);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.5px;
-  color: #ffffff;
-  opacity: 0;
-  animation: fadeUp 0.6s ease-out 0.22s forwards;
-}
-
-.desc {
-  margin: 0 0 32px;
-  max-width: 480px;
-  font-family: var(--font-body);
-  font-size: 15.5px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.78);
-  opacity: 0;
-  animation: fadeUp 0.6s ease-out 0.34s forwards;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.6s ease-out 0.46s forwards;
-}
-
-@keyframes fadeUp {
+@keyframes fadeSlideIn {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -121,37 +70,222 @@
   }
 }
 
-/* ---------- Responsive ---------- */
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+}
 
-@media (max-width: 640px) {
+@keyframes swing {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+}
+
+/* Heading */
+
+.content h1 {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.5px;
+  margin: 0 0 10px;
+  color: #ffffff;
+  animation: fadeSlideIn 0.8s ease 0.1s both;
+}
+
+/* Highlighted / tadakta-bhadakta text */
+
+.highlight {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    #ff9d2f 0%,
+    #ffd54f 25%,
+    #ff9d2f 50%,
+    #ffd54f 75%,
+    #ff9d2f 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shimmer 3.5s linear infinite,
+    glowText 2s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+
+@keyframes glowText {
+  from {
+    filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.4));
+  }
+  to {
+    filter: drop-shadow(0 0 16px rgba(255, 193, 7, 0.85));
+  }
+}
+
+.desc {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+  line-height: 1.55;
+  max-width: 520px;
+  margin: 0 auto 20px;
+  animation: fadeSlideIn 0.8s ease 0.2s both;
+}
+
+/* Actions */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  animation: fadeSlideIn 0.8s ease 0.3s both;
+}
+
+.actions button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  min-width: 150px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.actions button:hover {
+  transform: translateY(-2px);
+}
+
+/* ===================== */
+/* Laptop / small desktop */
+/* ===================== */
+
+@media (max-width: 1200px) {
   .hero {
-    min-height: 64vh;
+    min-height: 42vh;
+  }
+
+  .content h1 {
+    font-size: 1.9rem;
+  }
+
+  .actions button {
+    min-width: 140px;
+  }
+}
+
+/* ===================== */
+/* Tablet */
+/* ===================== */
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 38vh;
+  }
+
+  .content h1 {
+    font-size: 1.6rem;
+  }
+
+  .desc {
+    font-size: 0.88rem;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  .actions button {
+    min-width: 130px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===================== */
+/* Mobile - hero aur bhi chhota */
+/* ===================== */
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 32vh;
   }
 
   .content {
-    padding: 40px 20px;
-    text-align: left;
+    padding: 24px 16px;
+  }
+
+  .small {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+  }
+
+  .content h1 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+
+  .desc {
+    font-size: 0.75rem;
+    margin-bottom: 16px;
+    line-height: 1.5;
   }
 
   .actions {
     flex-direction: column;
-    align-items: stretch;
+    gap: 8px;
     width: 100%;
   }
 
-  .actions > * {
+  .actions button {
     width: 100%;
+    min-width: unset;
+    padding: 9px 14px;
+    font-size: 0.8rem;
   }
 }
 
-/* ---------- Reduced motion ---------- */
+/* ===================== */
+/* Very small screens */
+/* ===================== */
 
-@media (prefers-reduced-motion: reduce) {
-  .small,
-  .content h1,
-  .desc,
-  .actions {
-    animation: none !important;
-    opacity: 1;
+@media (max-width: 380px) {
+  .hero {
+    min-height: 28vh;
+  }
+
+  .content h1 {
+    font-size: 1.1rem;
+  }
+
+  .desc {
+    font-size: 0.7rem;
   }
 }

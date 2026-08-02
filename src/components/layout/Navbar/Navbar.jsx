@@ -8,6 +8,7 @@ import {
   Home,
   Store,
   Package,
+  LogOut,
 } from "lucide-react";
 
 import { useState } from "react";
@@ -57,37 +58,50 @@ const Navbar = () => {
           <Search size={20} />
         </div>
 
-        {/* Menu */}
+        {/* Nav links */}
         <nav className={open ? styles.showMenu : ""}>
-          <Link to="/" onClick={() => setOpen(false)}>
-            <Home size={18} />
+          <div className={styles.navLinks}>
+            <Link to="/" onClick={() => setOpen(false)}>
+              <Home size={18} />
+              <span>Home</span>
+            </Link>
 
-            <span>Home</span>
-          </Link>
+            <Link to="/shop" onClick={() => setOpen(false)}>
+              <Store size={18} />
+              <span>Shop</span>
+            </Link>
 
-          <Link to="/shop" onClick={() => setOpen(false)}>
-            <Store size={18} />
+            <Link to="/wishlist" onClick={() => setOpen(false)}>
+              <Heart size={18} />
+              <span>Wishlist</span>
+            </Link>
 
-            <span>Shop</span>
-          </Link>
+            <Link to="/cart" onClick={() => setOpen(false)}>
+              <ShoppingCart size={18} />
+              <span>Cart</span>
+            </Link>
 
-          <Link to="/wishlist" onClick={() => setOpen(false)}>
-            <Heart size={18} />
+            <Link to="/orders" onClick={() => setOpen(false)}>
+              <Package size={18} />
+              <span>My Orders</span>
+            </Link>
+          </div>
 
-            <span>Wishlist</span>
-          </Link>
-
-          <Link to="/cart" onClick={() => setOpen(false)}>
-            <ShoppingCart size={18} />
-
-            <span>Cart</span>
-          </Link>
-
-          <Link to="/orders" onClick={() => setOpen(false)}>
-            <Package size={18} />
-
-            <span>My Orders</span>
-          </Link>
+          {/* Logout - sirf sidebar ke andar, sabse niche, sirf tab jab user logged in ho */}
+          {user && (
+            <div className={styles.navBottom}>
+              <button
+                className={styles.logoutBtn}
+                onClick={() => {
+                  logout();
+                  setOpen(false);
+                }}
+              >
+                <LogOut size={18} />
+                <span>Logout</span>
+              </button>
+            </div>
+          )}
         </nav>
 
         {/* Right Side */}
@@ -96,15 +110,11 @@ const Navbar = () => {
           {user ? (
             <div className={styles.user}>
               <User size={20} />
-
               <span>{user.name}</span>
-
-              <button onClick={logout}>Logout</button>
             </div>
           ) : (
             <div className={styles.auth}>
               <Link to="/login">Login</Link>
-
               <Link to="/register">Register</Link>
             </div>
           )}

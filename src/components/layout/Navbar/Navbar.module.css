@@ -8,8 +8,9 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
   width: 100%;
   overflow-x: hidden;
 }
@@ -29,10 +30,11 @@
 .logo {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #1a1a2e;
+  color: #111827;
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
+  letter-spacing: -0.02em;
 }
 
 /* Search */
@@ -43,10 +45,10 @@
   max-width: 420px;
   display: flex;
   align-items: center;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 8px 12px;
-  background: #f7f7f9;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgba(249, 250, 251, 0.95);
 }
 
 .search input {
@@ -56,12 +58,12 @@
   outline: none;
   background: transparent;
   font-size: 0.95rem;
-  color: #1a1a2e;
+  color: #111827;
   width: 100%;
 }
 
 .search svg {
-  color: #888;
+  color: #64748b;
   flex-shrink: 0;
 }
 
@@ -83,15 +85,21 @@
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  color: #333;
+  color: #334155;
   font-size: 0.95rem;
   font-weight: 500;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .container nav a:hover {
-  color: #e67e22;
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+.container nav a.active {
+  color: #2563eb;
+  font-weight: 700;
 }
 
 /* Logout block inside sidebar - hidden on desktop by default view,
@@ -148,19 +156,20 @@
 .auth a {
   text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
-  color: #1a1a2e;
-  padding: 6px 14px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
+  font-weight: 600;
+  color: #1f2937;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.92);
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .auth a:hover {
-  background: #1a1a2e;
-  color: #fff;
-  border-color: #1a1a2e;
+  background: #2563eb;
+  color: #ffffff;
+  border-color: transparent;
 }
 
 /* Mobile menu button - hidden on desktop */

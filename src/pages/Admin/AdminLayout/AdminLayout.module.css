@@ -166,27 +166,26 @@
 }
 
 .menu a:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
   padding-left: 16px;
 }
 
 .menu a.active {
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: rgba(232, 147, 74, 0.14);
+  color: #ffd8a8;
 }
 
 .menu a.active::before {
   content: "";
   position: absolute;
-  left: -18px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 60%;
-  background: var(--accent);
-  border-radius: 0 3px 3px 0;
-  box-shadow: 0 0 8px var(--accent-glow);
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #f59e0b, #d97706);
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 18px rgba(232, 147, 74, 0.18);
 }
 
 /* Disabled / coming soon */

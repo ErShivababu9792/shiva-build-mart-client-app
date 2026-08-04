@@ -13,6 +13,7 @@ const Login = () => {
   const [form, setForm] = useState({
     email: "",
     password: "",
+    remember: false,
   });
 
   const [loading, setLoading] = useState(false);
@@ -20,22 +21,33 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
     setForm({
       ...form,
-
-      [e.target.name]: e.target.value,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validation
+
+    if (!form.email.trim()) {
+      return alert("Please enter your email.");
+    }
+
+    if (!form.password.trim()) {
+      return alert("Please enter your password.");
+    }
+
     try {
       setLoading(true);
 
       await login({
-        ...form,
-
+        email: form.email.trim(),
+        password: form.password,
         loginType: "CUSTOMER",
       });
 
@@ -53,8 +65,17 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit}
+      >
         <h2>Customer Login</h2>
+
+        <p className={styles.subtitle}>
+          Welcome back! Login to continue shopping.
+        </p>
+
+        {/* EMAIL */}
 
         <input
           type="email"
@@ -62,8 +83,11 @@ const Login = () => {
           placeholder="Enter Email"
           value={form.email}
           onChange={handleChange}
+          autoComplete="email"
           required
         />
+
+        {/* PASSWORD */}
 
         <div className={styles.passwordBox}>
           <input
@@ -72,21 +96,56 @@ const Login = () => {
             placeholder="Enter Password"
             value={form.password}
             onChange={handleChange}
+            autoComplete="current-password"
             required
           />
 
-          <span onClick={() => setShowPassword(!showPassword)}>
+          <span
+            onClick={() => setShowPassword(!showPassword)}
+          >
             {showPassword ? "🙈" : "👁"}
           </span>
         </div>
 
-        <button disabled={loading}>
+        {/* OPTIONS */}
+
+        <div className={styles.options}>
+          <label>
+            <input
+              type="checkbox"
+              name="remember"
+              checked={form.remember}
+              onChange={handleChange}
+            />
+
+            Remember Me
+          </label>
+
+          <Link
+            to="/forgot-password"
+            className={styles.forgot}
+          >
+            Forgot Password?
+          </Link>
+        </div>
+
+        {/* LOGIN */}
+
+        <button
+          type="submit"
+          disabled={loading}
+        >
           {loading ? "Logging in..." : "Login"}
         </button>
 
+        {/* REGISTER */}
+
         <p className={styles.switch}>
           New user?
-          <Link to="/register">Create Account</Link>
+
+          <Link to="/register">
+            Create Account
+          </Link>
         </p>
       </form>
     </div>

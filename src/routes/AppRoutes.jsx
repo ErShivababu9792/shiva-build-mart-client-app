@@ -30,6 +30,7 @@ import AdminOrders from "../pages/Admin/Orders/AdminOrders";
 import AdminOrderDetails from "../pages/Admin/Orders/OrderDetails";
 
 import AdminLogin from "../pages/Admin/Login/AdminLogin";
+import AdminRegister from "../pages/Admin/Register/AdminRegister";
 
 import AdminCategories from "../pages/Admin/Categories/AdminCategories";
 import AddCategory from "../pages/Admin/Categories/AddCategory";
@@ -76,6 +77,7 @@ const AppRoutes = () => {
         {/* ADMIN LOGIN */}
 
         <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin-register" element={<AdminRegister />} />
 
         {/* ADMIN PANEL */}
 

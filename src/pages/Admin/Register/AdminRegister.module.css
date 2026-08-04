@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+.container {
+  --bg: #070b13;
+  --surface: rgba(18, 24, 33, 0.92);
+  --surface-alt: rgba(24, 34, 50, 0.92);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(79, 168, 216, 0.22);
+  --accent: #4fa8d8;
+  --accent-2: #e8934a;
+  --text: #eef2fb;
+  --muted: #7c8a9e;
+  --danger: #f1665c;
+  --radius: 18px;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top left, rgba(79, 168, 216, 0.2), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(232, 147, 74, 0.14), transparent 22%),
+    var(--bg);
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 42px 34px;
+  background: linear-gradient(180deg, var(--surface), var(--surface-alt));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 16px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(79, 168, 216, 0.14);
+  color: var(--text);
+  font-size: 28px;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  color: var(--text);
+  font-size: 28px;
+}
+
+.subtitle {
+  margin: 8px 0 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+input:focus {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.passwordBox {
+  position: relative;
+}
+
+.button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.error {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(241, 102, 94, 0.12);
+  border: 1px solid rgba(241, 102, 94, 0.18);
+  color: var(--danger);
+  font-size: 14px;
+}
+
+.disabledMessage {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  text-align: center;
+  line-height: 1.6;
+}

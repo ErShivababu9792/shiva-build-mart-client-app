@@ -243,8 +243,8 @@ value={`₹${stats.revenue}`}
 
 
 <Box
-title="Expected Profit"
-value={`₹${stats.profit}`}
+  title="Expected Profit"
+  value={`₹${Number(stats.profit || 0).toFixed(2)}`}
 />
 
 

@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import { Heart, ShoppingCart, Truck, ShieldCheck } from "lucide-react";
 
 import { Link } from "react-router-dom";
-import api from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../services/cart.service";
+import { getProductById } from "../../services/product.service";
 
 import styles from "./Product.module.css";
 
@@ -25,9 +25,9 @@ const Product = () => {
 
   const fetchProduct = async () => {
     try {
-      const res = await api.get(`/product/${id}`);
+      const res = await getProductById(id);
 
-      setProduct(res.data.data);
+      setProduct(res);
     } catch (error) {
       console.log("PRODUCT ERROR", error);
     } finally {

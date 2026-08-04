@@ -58,29 +58,18 @@ const Shop = () => {
 
         const data = await getProducts();
 
-
         console.log("PRODUCTS:", data);
 
-
-        setProducts(
-
-          Array.isArray(data)
-
-          ? data
-
-          : data.data || []
-
-        );
+        setProducts(Array.isArray(data) ? data : data?.products || []);
 
 
       } catch (error) {
 
-
         console.log(
           "Product Error:",
-          error
+          error.response?.data || error.message || error,
+          error.config?.url
         );
-
 
       } finally {
 

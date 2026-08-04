@@ -7,11 +7,11 @@ import api from "../api/axios";
 
 export const getProducts = async () => {
 
-  const res = await api.get("/product");
+  const res = await api.get("/products");
 
   console.log("PRODUCT API:", res.data);
 
-  return res.data.data.products;
+  return res.data?.data?.products || [];
 
 };
 
@@ -26,7 +26,7 @@ export const getProducts = async () => {
 export const getProductById = async(id)=>{
 
   const res = await api.get(
-    `/product/${id}`
+    `/products/${id}`
   );
 
   return res.data.data;
@@ -46,7 +46,7 @@ export const createProduct = async (formData) => {
 
   const res = await api.post(
 
-    "/product",
+    "/products",
 
     formData,
 
@@ -75,7 +75,7 @@ export const updateProduct = async (id, formData) => {
 
   const res = await api.put(
 
-    `/product/${id}`,
+    `/products/${id}`,
 
     formData,
 
@@ -104,7 +104,7 @@ export const deleteProduct = async(id)=>{
 
   const res = await api.delete(
 
-    `/product/${id}`
+    `/products/${id}`
 
   );
 

@@ -8,8 +8,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(18px);
+  background: #ffffff;
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
   width: 100%;
   overflow-x: hidden;
@@ -18,10 +17,10 @@
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
   width: 100%;
 }
 
@@ -43,21 +42,24 @@
   flex: 1;
   min-width: 0;
   max-width: 420px;
+  height: 42px;
   display: flex;
   align-items: center;
   border: 1px solid rgba(15, 23, 42, 0.12);
   border-radius: 999px;
-  padding: 10px 14px;
+  padding: 0 14px;
   background: rgba(249, 250, 251, 0.95);
 }
 
 .search input {
   flex: 1;
   min-width: 0;
+  height: 100%;
   border: none;
   outline: none;
   background: transparent;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  line-height: 1;
   color: #111827;
   width: 100%;
 }
@@ -175,16 +177,15 @@
 /* Mobile menu button - hidden on desktop */
 
 .menuBtn {
-  display: none;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  color: #1a1a2e;
-  padding: 4px;
-  flex-shrink: 0;
-  z-index: 2100;
-}
-
+    display: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #1a1a2e;
+    padding: 8px;
+    flex-shrink: 0;
+    z-index: 2100;
+  }
 /* ===================== */
 /* Mobile / small devices */
 /* ===================== */
@@ -202,39 +203,45 @@
 
   .container {
     padding: 10px 12px;
-    gap: 8px;
+    gap: 10px;
   }
 
   .logo {
-    font-size: 1.05rem;
+    font-size: 1rem;
+    font-weight: 600;
   }
 
   .search {
     max-width: none;
-    padding: 6px 10px;
+    height: 36px;
+    padding: 0 10px;
   }
 
   .search input {
     font-size: 0.85rem;
+    font-weight: 400;
   }
 
-  /* Sidebar */
+  /* Sidebar - right side se khulega, hero/page content ke sabse upar,
+     peeche kuchh bhi na dikhe */
   .container nav {
     position: fixed;
     top: 0;
     right: 0;
     height: 100vh;
-    width: 78%;
-    max-width: 300px;
+    height: 100dvh;
+    width: 80%;
+    max-width: 320px;
     background: #ffffff;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 80px 24px 24px;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    padding: 72px 20px 20px;
+    box-shadow: -10px 0 32px rgba(15, 23, 42, 0.18);
     transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 2000;
+    transition: transform 0.28s ease;
+    z-index: 9999;
+    overflow-y: auto;
   }
 
   .navLinks {
@@ -245,9 +252,10 @@
 
   .container nav a {
     width: 100%;
-    padding: 12px 8px;
-    font-size: 1rem;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 12px 12px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f5f7fa;
+    font-weight: 500;
   }
 
   /* Logout ab sidebar mein dikhega, sabse niche */
@@ -258,7 +266,7 @@
     border-top: 1px solid #f0f0f0;
   }
 
-  /* Sidebar open state */
+  /* Sidebar open state - right se slide in hoke sabse upar visible hoga */
   .showMenu {
     transform: translateX(0) !important;
   }

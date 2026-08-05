@@ -12,8 +12,7 @@ import {
 } from "lucide-react";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 
 import styles from "./Navbar.module.css";
@@ -25,6 +24,7 @@ const Navbar = () => {
   const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <header className={styles.navbar}>
@@ -37,26 +37,24 @@ const Navbar = () => {
 
         {/* Search */}
 
-        <div className={styles.search}>
-          <input
-            placeholder="Search products..."
-            value={search}
-            onChange={(e) => {
-              const value = e.target.value;
-
-              setSearch(value);
-
-              console.log("NAVBAR SEARCH:", value);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                navigate(`/shop?search=${search}`);
-              }
-            }}
-          />
-
-          <Search size={20} />
-        </div>
+        {location.pathname === "/shop" && (
+          <div className={styles.search}>
+            <input
+              placeholder="Search products..."
+              value={search}
+              onChange={(e) => {
+                const value = e.target.value;
+                setSearch(value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  navigate(`/shop?search=${search}`);
+                }
+              }}
+            />
+            <Search size={20} />
+          </div>
+        )}
 
         {/* Nav links */}
         <nav className={open ? styles.showMenu : ""}>

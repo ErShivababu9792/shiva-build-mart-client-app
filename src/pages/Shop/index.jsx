@@ -16,6 +16,8 @@ const Shop = () => {
 
   const [search, setSearch] = useState("");
 
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   const [searchParams] = useSearchParams();
 
 
@@ -92,9 +94,29 @@ const Shop = () => {
 
 
 
+  // ==========================
+  // CATEGORIES (products se derive)
+  // ==========================
+
+
+  const categories = [
+    "All",
+    ...new Set(
+
+      products
+        .map((product) => product.category?.name)
+        .filter(Boolean)
+
+    ),
+  ];
+
+
+
+
+
 
   // ==========================
-  // LIVE SEARCH FILTER
+  // LIVE SEARCH + CATEGORY FILTER
   // ==========================
 
 
@@ -106,16 +128,9 @@ const Shop = () => {
       .trim();
 
 
+    const matchesSearch =
 
-    if(searchText === ""){
-
-      return true;
-
-    }
-
-
-
-    return (
+      searchText === "" ||
 
       product.name
       ?.toLowerCase()
@@ -133,9 +148,17 @@ const Shop = () => {
 
       product.description
       ?.toLowerCase()
-      .includes(searchText)
+      .includes(searchText);
 
-    );
+
+    const matchesCategory =
+
+      selectedCategory === "All" ||
+
+      product.category?.name === selectedCategory;
+
+
+    return matchesSearch && matchesCategory;
 
 
   });
@@ -173,6 +196,31 @@ const Shop = () => {
 
 
     <section className={styles.shop}>
+
+
+      {/* Categories - navbar ke turant baad, simple text form */}
+
+      <div className={styles.categories}>
+
+        {
+          categories.map((category) => (
+
+            <span
+              key={category}
+              className={
+                selectedCategory === category
+                  ? `${styles.categoryItem} ${styles.categoryActive}`
+                  : styles.categoryItem
+              }
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </span>
+
+          ))
+        }
+
+      </div>
 
 
       <h1>

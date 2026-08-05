@@ -1,106 +1,32 @@
-/* Shop.module.css */
+/* Categories - simple inline text list */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+/* Categories - simple inline text list, professional look */
 
-.shop {
-  --ink: #1a2130;
-  --ink-soft: #5b6472;
-  --bg: #fafaf8;
-  --surface: #ffffff;
-  --border: #e7e9ee;
-  --accent: #e85d2c;
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 40px 24px 80px;
-  font-family: var(--font-body);
-  background: var(--bg);
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 24px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  margin-bottom: 20px;
 }
 
-.shop > h1 {
-  margin: 0 0 30px;
-  font-family: var(--font-display);
-  font-size: 27px;
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.2px;
+.categoryItem {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #64748b;
+  cursor: pointer;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  transition: color 0.15s ease;
 }
 
-.shop > h1::after {
-  content: "";
-  display: block;
-  width: 44px;
-  height: 3px;
-  margin-top: 10px;
-  background: var(--accent);
-  border-radius: 2px;
+.categoryItem:hover {
+  color: #1e293b;
 }
 
-/* ---------- Loading / Empty ---------- */
-
-.shop > h2 {
-  padding: 70px 20px;
-  text-align: center;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--ink-soft);
-  background: var(--surface);
-  border: 1px dashed var(--border);
-  border-radius: 14px;
-}
-
-/* ---------- Grid ---------- */
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 16px;
-  animation: gridIn 0.4s ease-out both;
-}
-
-@keyframes gridIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.grid > * {
-  animation: cardIn 0.4s ease-out both;
-}
-
-.grid > *:nth-child(1) { animation-delay: 0.02s; }
-.grid > *:nth-child(2) { animation-delay: 0.06s; }
-.grid > *:nth-child(3) { animation-delay: 0.1s; }
-.grid > *:nth-child(4) { animation-delay: 0.14s; }
-.grid > *:nth-child(5) { animation-delay: 0.18s; }
-.grid > *:nth-child(6) { animation-delay: 0.22s; }
-.grid > *:nth-child(n+7) { animation-delay: 0.24s; }
-
-@keyframes cardIn {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 640px) {
-  .shop {
-    padding: 28px 16px 60px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 10px;
-  }
-}
-
-/* ---------- Reduced motion ---------- */
-
-@media (prefers-reduced-motion: reduce) {
-  .grid,
-  .grid > * {
-    animation: none !important;
-  }
+.categoryActive {
+  color: #111827;
+  font-weight: 600;
 }

@@ -1,4 +1,17 @@
-/* Categories - simple inline text list */
+/* Shop.module.css */
+
+.shop {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.shop h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 16px;
+}
 
 /* Categories - simple inline text list, professional look */
 
@@ -7,7 +20,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 18px;
-  padding: 10px 24px;
+  padding: 10px 0;
   border-bottom: 1px solid rgba(15, 23, 42, 0.06);
   margin-bottom: 20px;
 }
@@ -29,4 +42,24 @@
 .categoryActive {
   color: #111827;
   font-weight: 600;
+}
+
+/* Product grid */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 600px) {
+  .shop {
+    padding: 12px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
 }

@@ -35,11 +35,7 @@ const Shop = () => {
     const searchValue = searchParams.get("search");
 
 
-    if(searchValue){
-
-      setSearch(searchValue);
-
-    }
+    setSearch(searchValue || "");
 
 
   },[searchParams]);
@@ -226,22 +222,6 @@ const Shop = () => {
       <h1>
         All Products
       </h1>
-
-
-
-
-      <input
-
-        className={styles.search}
-
-        placeholder="Search products..."
-
-        value={search}
-
-        onChange={(e)=>setSearch(e.target.value)}
-
-      />
-
 
 
 

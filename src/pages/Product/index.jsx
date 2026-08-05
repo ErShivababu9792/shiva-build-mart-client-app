@@ -29,7 +29,7 @@ const Product = () => {
 
       setProduct(res);
     } catch (error) {
-      console.log("PRODUCT ERROR", error);
+
     } finally {
       setLoading(false);
     }

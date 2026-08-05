@@ -23,11 +23,11 @@ const Wishlist = () => {
     try {
       const data = await getWishlist();
 
-      console.log("WISHLIST DATA:", data);
+
 
       setWishlist(data || []);
     } catch (error) {
-      console.log("WISHLIST ERROR:", error);
+
     } finally {
       setLoading(false);
     }
@@ -49,7 +49,7 @@ const Wishlist = () => {
         prev.filter((item) => item.productId !== productId),
       );
     } catch (error) {
-      console.log(error);
+
     }
   };
 

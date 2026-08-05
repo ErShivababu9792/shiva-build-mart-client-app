@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../../../context/AuthContext";
 import styles from "./Dashboard.module.css";
 
 import api from "../../../api/axios";
@@ -7,8 +8,7 @@ import api from "../../../api/axios";
 const Dashboard = () => {
 
 
-  const admin =
-    JSON.parse(localStorage.getItem("user")) || {};
+  const { user: admin } = useAuth();
 
 
 
@@ -59,12 +59,7 @@ const Dashboard = () => {
 
     }
     catch(error){
-
-      console.log(
-        "Dashboard Error",
-        error
-      );
-
+      // Dashboard load failed silently or show a friendly UI message.
     }
     finally{
 

@@ -30,23 +30,12 @@ const FeaturedProducts = () => {
         const data = await getProducts();
 
 
-        console.log(
-          "FEATURED PRODUCTS:",
-          data
-        );
-
-
         setProducts(data);
 
 
       }
       catch(error){
-
-        console.log(
-          "FEATURED ERROR:",
-          error
-        );
-
+        // Handle featured product load error if necessary
       }
 
 

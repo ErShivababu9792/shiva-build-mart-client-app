@@ -26,14 +26,9 @@ const AdminCategories = () => {
       setCategories(data);
 
 
-    }catch(error){
-
-      console.log(
-        "CATEGORY ERROR:",
-        error
-      );
-
-    }finally{
+    } catch (error) {
+      // Handle category load failure
+    } finally {
 
       setLoading(false);
 

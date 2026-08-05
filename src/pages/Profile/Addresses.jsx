@@ -35,11 +35,11 @@ const Addresses = ({ onSelectAddress }) => {
     try {
       const res = await getAddresses();
 
-      console.log("ADDRESS DATA:", res);
+
 
       setAddresses(res || []);
     } catch (error) {
-      console.log("Address fetch error:", error);
+
     }
   };
 
@@ -73,7 +73,7 @@ const Addresses = ({ onSelectAddress }) => {
 
       fetchAddresses();
     } catch (error) {
-      console.log("Save address error:", error);
+
     }
   };
 
@@ -105,12 +105,12 @@ const Addresses = ({ onSelectAddress }) => {
 
       fetchAddresses();
     } catch (error) {
-      console.log("Delete error:", error);
+
     }
   };
 
   const handleSelect = (address) => {
-    console.log("ADDRESS SELECTED:", address);
+
 
     setSelectedAddress(address);
 

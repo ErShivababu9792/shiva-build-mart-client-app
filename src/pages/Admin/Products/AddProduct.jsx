@@ -80,7 +80,7 @@ const AddProduct = () => {
 
       const response = await createProduct(data);
 
-      console.log("PRODUCT CREATED:", response);
+
 
       alert("Product Added Successfully");
 
@@ -98,7 +98,7 @@ const AddProduct = () => {
 
       setImage(null);
     } catch (error) {
-      console.log("ADD PRODUCT ERROR:", error.response?.data || error);
+
 
       alert("Product Add Failed");
     } finally {

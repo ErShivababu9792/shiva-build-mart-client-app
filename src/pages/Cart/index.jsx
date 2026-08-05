@@ -16,11 +16,11 @@ const Cart = () => {
     try {
       const data = await getCart();
 
-      console.log("CART DATA:", data);
+
 
       setCart(data);
     } catch (error) {
-      console.log(error);
+
     } finally {
       setLoading(false);
     }
@@ -40,7 +40,7 @@ const Cart = () => {
 
       fetchCart();
     } catch (error) {
-      console.log(error);
+
     }
   };
 

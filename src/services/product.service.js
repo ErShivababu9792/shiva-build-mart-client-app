@@ -9,7 +9,7 @@ export const getProducts = async () => {
 
   const res = await api.get("/products");
 
-  console.log("PRODUCT API:", res.data);
+
 
   return res.data?.data?.products || [];
 

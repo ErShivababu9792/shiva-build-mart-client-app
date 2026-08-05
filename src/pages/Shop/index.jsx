@@ -56,19 +56,13 @@ const Shop = () => {
 
         const data = await getProducts();
 
-        console.log("PRODUCTS:", data);
+
 
         setProducts(Array.isArray(data) ? data : data?.products || []);
 
 
       } catch (error) {
-
-        console.log(
-          "Product Error:",
-          error.response?.data || error.message || error,
-          error.config?.url
-        );
-
+        // Handle product load error silently or show UI feedback as needed
       } finally {
 
 
@@ -163,7 +157,7 @@ const Shop = () => {
 
 
 
-  console.log("SEARCH VALUE:", search);
+
 
 
 

@@ -2,7 +2,7 @@ import styles from "./SearchBar.module.css";
 
 const SearchBar = ({ search, setSearch }) => {
 
-  console.log("SEARCHBAR LOADED");
+
 
 
   const handleSearch = (e) => {
@@ -11,7 +11,7 @@ const SearchBar = ({ search, setSearch }) => {
 
     setSearch(value);
 
-    console.log("SEARCH TEXT:", value);
+
 
   };
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import api from "../../../api/axios";
+import { useAuth } from "../../../context/AuthContext";
 
 import styles from "./AdminLogin.module.css";
 
@@ -31,21 +31,21 @@ const AdminLogin = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await api.post("/auth/login", form);
-      const token = response.data.data.token;
-      const user = response.data.data.user;
+      await login({
+        email: form.email.trim(),
+        password: form.password,
+        loginType: "ADMIN",
+      });
 
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem(
         "adminSession",
-        JSON.stringify({ loginTime: Date.now(), user: user })
+        JSON.stringify({ loginTime: Date.now() })
       );
 
       alert("Admin Login Successful");
       navigate("/admin");
     } catch (error) {
-      console.error("LOGIN ERROR:", error);
+
       alert(error.response?.data?.message || "Invalid Email or Password");
     } finally {
       setLoading(false);

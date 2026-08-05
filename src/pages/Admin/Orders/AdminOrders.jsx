@@ -23,7 +23,7 @@ const AdminOrders = () => {
 
       setOrders(res.data.data || []);
     } catch (error) {
-      console.log(error.response?.data || error);
+
     } finally {
       setLoading(false);
     }
@@ -37,7 +37,7 @@ const AdminOrders = () => {
 
       fetchOrders();
     } catch (error) {
-      console.log("STATUS UPDATE ERROR", error);
+
     }
   };
 

@@ -13,11 +13,11 @@ const Orders = () => {
     try {
       const response = await getMyOrders();
 
-      console.log("MY ORDERS:", response);
+
 
       setOrders(response.data || []);
     } catch (error) {
-      console.log("ORDER ERROR:", error.response?.data || error);
+
     } finally {
       setLoading(false);
     }

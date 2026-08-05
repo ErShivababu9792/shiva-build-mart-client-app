@@ -16,11 +16,11 @@ const OrderDetails = () => {
     try {
       const data = await getOrderById(id);
 
-      console.log("ORDER DETAILS:", data);
+
 
       setOrder(data);
     } catch (error) {
-      console.log("ORDER DETAILS ERROR:", error);
+
     } finally {
       setLoading(false);
     }

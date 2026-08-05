@@ -25,14 +25,14 @@ const AdminProducts = () => {
 
       const data = await getProducts();
 
-      console.log("ADMIN PRODUCTS:", data);
+
 
       setProducts(data);
 
 
     } catch (error) {
 
-      console.log(error);
+
 
     } finally {
 
@@ -75,7 +75,7 @@ const AdminProducts = () => {
     } catch (error) {
 
 
-      console.log("DELETE ERROR:", error);
+
 
 
 

@@ -108,7 +108,7 @@ const EditProduct = () => {
 
     catch(error){
 
-      console.log(error);
+
 
       alert(
         "Product Not Found"

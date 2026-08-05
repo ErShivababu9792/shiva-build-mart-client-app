@@ -1,10 +1,6 @@
-import { 
-    NavLink, 
-    Outlet, 
-    useNavigate 
-} from "react-router-dom";
-
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useAuth } from "../../../context/AuthContext";
 
 import styles from "./AdminLayout.module.css";
 
@@ -16,8 +12,7 @@ const navigate = useNavigate();
 
 
 
-const admin =
-JSON.parse(localStorage.getItem("user")) || {};
+const { user: admin } = useAuth();
 
 
 

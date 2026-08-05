@@ -8,7 +8,7 @@ import styles from "./UserActions.module.css";
 
 const UserActions = () => {
   const { user, logout } = useAuth();
-  console.log("NAVBAR USER:", user);
+
 
   return (
     <div className={styles.actions}>

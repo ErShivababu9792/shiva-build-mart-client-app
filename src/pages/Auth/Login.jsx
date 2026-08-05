@@ -55,7 +55,7 @@ const Login = () => {
 
       navigate("/");
     } catch (error) {
-      console.log("LOGIN ERROR:", error);
+
 
       alert(error.response?.data?.message || "Login Failed");
     } finally {

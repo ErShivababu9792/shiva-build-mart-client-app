@@ -1,8 +1,9 @@
+import { useAuth } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import styles from "./Profile.module.css";
 
 const Profile = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { user } = useAuth();
 
   return (
     <div className={styles.container}>

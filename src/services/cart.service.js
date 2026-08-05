@@ -17,7 +17,7 @@ export const addToCart = async (productId) => {
 export const getCart = async () => {
   const res = await api.get("/cart");
 
-  console.log("CART API:", res.data);
+
 
   return res.data.data.items || [];
 };

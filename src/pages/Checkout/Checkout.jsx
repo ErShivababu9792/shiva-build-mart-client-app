@@ -36,11 +36,11 @@ const Checkout = () => {
 
       const data = await getCart();
 
-      console.log("CHECKOUT CART:", data);
+
 
       setCartItems(Array.isArray(data) ? data : []);
     } catch (error) {
-      console.log("CART ERROR:", error.response?.data || error);
+
 
       setCartItems([]);
     } finally {
@@ -100,7 +100,7 @@ const Checkout = () => {
         couponCode: null,
       });
 
-      console.log("ORDER:", orderResponse);
+
 
       const order = orderResponse.data;
 
@@ -112,11 +112,11 @@ const Checkout = () => {
 
       const paymentResponse = await createPaymentOrder(order.id);
 
-      console.log("RAZORPAY:", paymentResponse);
+
 
       const razorpayOrder = paymentResponse.data.razorpayOrder;
 
-      console.log("RAZORPAY KEY:", import.meta.env.VITE_RAZORPAY_KEY_ID);
+
 
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
@@ -133,7 +133,7 @@ const Checkout = () => {
 
         handler: async (response) => {
           try {
-            console.log("RAZORPAY RESPONSE", response);
+
 
             const verify = await verifyPayment({
               razorpay_order_id: response.razorpay_order_id,
@@ -143,13 +143,13 @@ const Checkout = () => {
               razorpay_signature: response.razorpay_signature,
             });
 
-            console.log("VERIFY SUCCESS", verify);
+
 
             alert("Payment Successful Order Placed");
 
             navigate("/orders");
           } catch (error) {
-            console.log("VERIFY ERROR", error.response?.data || error);
+
 
             alert("Payment verification failed");
           }
@@ -170,7 +170,7 @@ const Checkout = () => {
 
       razorpay.open();
     } catch (error) {
-      console.log("ORDER ERROR", error.response?.data || error);
+
 
       alert("Order failed");
     } finally {

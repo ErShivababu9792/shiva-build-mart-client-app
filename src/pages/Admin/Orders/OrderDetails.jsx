@@ -40,7 +40,7 @@ const OrderDetails = () => {
 
     catch(error){
 
-      console.log(error);
+
 
     }
 

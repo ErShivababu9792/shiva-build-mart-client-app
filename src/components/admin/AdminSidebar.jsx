@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 import styles from "./AdminSidebar.module.css";
 
@@ -10,8 +11,7 @@ const navigate = useNavigate();
 
 
 
-const admin =
-JSON.parse(localStorage.getItem("user")) || {};
+const { user: admin } = useAuth();
 
 
 
@@ -20,8 +20,6 @@ const handleLogout = () => {
 
 
 localStorage.removeItem("token");
-
-localStorage.removeItem("user");
 
 
 navigate("/admin-login");
